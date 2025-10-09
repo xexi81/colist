@@ -15,22 +15,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   // Método para iniciar sesión con Google
   void _signInWithGoogle() async {
+    print('Intentando login con Google...');
     try {
       final userCredential = await _authService.signInWithGoogle();
+      print('Resultado de signInWithGoogle: $userCredential');
       if (userCredential != null) {
         // Login exitoso: redirigir a otra pantalla (ej: HomeScreen)
         Navigator.pushReplacementNamed(context, '/home');
       } else {
         // Login cancelado o fallido
+        print('Login cancelado o fallido: userCredential es null');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error al iniciar sesión con Google')),
         );
       }
     } catch (e, stack) {
-      print(
-        'Error en Google Sign-In: '
-        '[31m$e\n$stack[0m',
-      );
+      print('Error en Google Sign-In: $e\n$stack');
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Error: $e')));
