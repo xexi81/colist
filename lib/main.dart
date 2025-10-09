@@ -32,9 +32,7 @@ class MainApp extends StatelessWidget {
           }
         },
       ),
-      routes: {
-        '/home': (context) => const HomeScreen(),
-      },
+      routes: {'/home': (context) => const HomeScreen()},
     );
   }
 }
