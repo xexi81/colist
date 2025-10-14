@@ -46,7 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '537810076469',
     projectId: 'colist-e2533',
     authDomain: 'colist-e2533.firebaseapp.com',
-    storageBucket: 'colist-e2533.firebasestorage.app',
+    storageBucket: 'colist-e2533.appspot.com',
     measurementId: 'G-KZWDM6XSSE',
   );
 
@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
     appId: '1:537810076469:android:c87464ec7803d83432c27c',
     messagingSenderId: '537810076469',
     projectId: 'colist-e2533',
-    storageBucket: 'colist-e2533.firebasestorage.app',
+    storageBucket: 'colist-e2533.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:537810076469:ios:612bdaf6d545306732c27c',
     messagingSenderId: '537810076469',
     projectId: 'colist-e2533',
-    storageBucket: 'colist-e2533.firebasestorage.app',
+    storageBucket: 'colist-e2533.appspot.com',
     androidClientId: '537810076469-ug5l8l239o0nrcm8m1700gu0hjgkkbv1.apps.googleusercontent.com',
     iosClientId: '537810076469-mu0qnf4ha83dvf9k6h2lcofddmc6pp8f.apps.googleusercontent.com',
     iosBundleId: 'com.example.colist',
@@ -74,7 +74,7 @@ class DefaultFirebaseOptions {
     appId: '1:537810076469:ios:612bdaf6d545306732c27c',
     messagingSenderId: '537810076469',
     projectId: 'colist-e2533',
-    storageBucket: 'colist-e2533.firebasestorage.app',
+    storageBucket: 'colist-e2533.appspot.com',
     androidClientId: '537810076469-ug5l8l239o0nrcm8m1700gu0hjgkkbv1.apps.googleusercontent.com',
     iosClientId: '537810076469-mu0qnf4ha83dvf9k6h2lcofddmc6pp8f.apps.googleusercontent.com',
     iosBundleId: 'com.example.colist',
@@ -86,7 +86,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '537810076469',
     projectId: 'colist-e2533',
     authDomain: 'colist-e2533.firebaseapp.com',
-    storageBucket: 'colist-e2533.firebasestorage.app',
+    storageBucket: 'colist-e2533.appspot.com',
     measurementId: 'G-FB6WD9TYX6',
   );
 }
