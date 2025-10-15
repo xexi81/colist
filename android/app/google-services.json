@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:537810076469:android:c87464ec7803d83432c27c",
+        "mobilesdk_app_id": "1:537810076469:android:699e6784443b1e4932c27c",
         "android_client_info": {
-          "package_name": "com.example.colist"
+          "package_name": "com.xexi.colist"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "537810076469-4ntfohi66ioveokq29h8tombqto3dg2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xexi.colist",
+            "certificate_hash": "cbaa6f3b0c1f41d0a50755ad1cdd55eee509d204"
+          }
+        },
         {
           "client_id": "537810076469-uf0do0858ps7qa5agre9hmskc7tv2r89.apps.googleusercontent.com",
           "client_type": 3
