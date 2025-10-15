@@ -29,6 +29,7 @@ class HomeScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 await FirebaseAuth.instance.signOut();
+                if (!context.mounted) return;
                 Navigator.pushReplacementNamed(context, '/');
               },
               child: Text('Cerrar sesión'),

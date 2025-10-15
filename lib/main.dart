@@ -4,10 +4,26 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'dart:developer' as developer;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  try {
+    if (Firebase.apps.isEmpty) {
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    }
+  } catch (e) {
+    // Ignora la excepción de app duplicada
+    if (e.toString().contains('duplicate-app')) {
+      developer.log('Firebase ya estaba inicializado');
+    } else {
+      rethrow;
+    }
+  }
+
   runApp(const MainApp());
 }
 

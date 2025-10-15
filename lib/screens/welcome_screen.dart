@@ -2,6 +2,7 @@ import 'package:colist/constants/app_colors.dart';
 import 'package:colist/constants/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:colist/login/auth_service.dart';
+import 'dart:developer' as developer;
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -15,22 +16,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   // Método para iniciar sesión con Google
   void _signInWithGoogle() async {
-    print('Intentando login con Google...');
+    developer.log('Intentando login con Google...');
     try {
       final userCredential = await _authService.signInWithGoogle();
-      print('Resultado de signInWithGoogle: $userCredential');
+      developer.log('Resultado de signInWithGoogle: $userCredential');
+
+      if (!mounted) return; // <--- evita el warning
+
       if (userCredential != null) {
         // Login exitoso: redirigir a otra pantalla (ej: HomeScreen)
         Navigator.pushReplacementNamed(context, '/home');
       } else {
         // Login cancelado o fallido
-        print('Login cancelado o fallido: userCredential es null');
+        developer.log('Login cancelado o fallido: userCredential es null');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error al iniciar sesión con Google')),
         );
       }
     } catch (e, stack) {
-      print('Error en Google Sign-In: $e\n$stack');
+      if (!mounted) return;
+      developer.log('Error en Google Sign-In: $e\n$stack');
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Error: $e')));
