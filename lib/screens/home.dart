@@ -11,6 +11,22 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Bienvenido, ${user?.displayName ?? 'Usuario'}'),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: CircleAvatar(
+                backgroundImage: NetworkImage(user!.photoURL!),
+                radius: 40,
+              ),
+            );
+          },
+        ),
+      ),
+      drawer: Drawer(
+        child: Text('Probando drawer'),
       ),
       body: Center(
         child: Column(
