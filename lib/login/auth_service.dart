@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:developer' as developer;
+import '../constants/firestore_service.dart';
 
 /// Servicio de autenticación con Firebase + Google
 class AuthService {
@@ -9,6 +10,9 @@ class AuthService {
   // El webClientId se configura en Android a través de strings.xml
   // y en iOS a través de GoogleService-Info.plist
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  // instanciamos variable para firestore
+  final _firestoreService = FirestoreService();
 
   /// Stream que notifica los cambios de estado de autenticación
   Stream<User?> get userChanges => _auth.authStateChanges();
@@ -51,6 +55,9 @@ class AuthService {
 
       developer.log('✅ Login exitoso! Usuario: ${userCredential.user?.email}');
 
+      // 5. Grabamos en firestore
+      await _firestoreService.saveUserData();
+
       return userCredential;
     } on FirebaseAuthException catch (e) {
       developer.log('❌ Firebase Auth Error: ${e.code} - ${e.message}');
@@ -65,6 +72,7 @@ class AuthService {
   Future<void> signOut() async {
     try {
       await _googleSignIn.disconnect();
+      await _googleSignIn.signOut();
       await _auth.signOut();
       developer.log("✅ Sesión cerrada con éxito.");
     } catch (e) {
