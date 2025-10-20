@@ -48,7 +48,10 @@ class MainApp extends StatelessWidget {
           }
         },
       ),
-      routes: {'/home': (context) => const HomeScreen()},
+      routes: {
+        '/home': (context) => const HomeScreen(),
+        '/welcome': (context) => const WelcomeScreen(),
+      },
     );
   }
 }

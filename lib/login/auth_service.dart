@@ -9,7 +9,7 @@ class AuthService {
 
   // El webClientId se configura en Android a través de strings.xml
   // y en iOS a través de GoogleService-Info.plist
-  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   // instanciamos variable para firestore
   final _firestoreService = FirestoreService();
